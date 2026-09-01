@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-hand: "Dancing Script", cursive;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-rose-soft: #ffd1e8;
+  --color-rose-love: #f472b6;
+  --color-rose-deep: #be185d;
+  --color-lavender: #a78bfa;
+  --color-plum-dark: #2b0a22;
+  --color-wine-dark: #1b0615;
+  --color-gold-soft: #fcd9a8;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #1b0615;
+  color: #fff5fa;
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+::selection {
+  background: rgba(244, 114, 182, 0.55);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1b0615;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f472b6, #a78bfa);
+  border-radius: 999px;
+  border: 2px solid #1b0615;
+}
+
+/* ── Typography helpers ─────────────────────────────── */
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+.font-hand {
+  font-family: "Dancing Script", cursive;
+}
+
+.text-gradient-rose {
+  background: linear-gradient(120deg, #f9a8d4, #f472b6 35%, #c084fc 70%, #fcd9a8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(120deg, #fff7ed, #fcd9a8, #fbbf24);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Glassmorphism ─────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 40px rgba(20, 4, 22, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.glass-strong {
+  background: rgba(43, 10, 34, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(244, 114, 182, 0.25);
+  box-shadow: 0 12px 50px rgba(20, 4, 22, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glow-border {
+  border: 1px solid rgba(244, 114, 182, 0.45);
+  box-shadow:
+    0 0 18px rgba(244, 114, 182, 0.28),
+    0 0 60px rgba(167, 139, 250, 0.18),
+    inset 0 0 24px rgba(244, 114, 182, 0.08);
+}
+
+.glow-soft {
+  box-shadow: 0 0 40px rgba(244, 114, 182, 0.35);
+}
+
+/* ── Buttons ────────────────────────────────────────── */
+.btn-romantic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(120deg, #db2777, #a21caf 55%, #7c3aed);
+  box-shadow: 0 8px 30px rgba(219, 39, 119, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  overflow: hidden;
+}
+.btn-romantic:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 14px 40px rgba(219, 39, 119, 0.6);
+}
+.btn-romantic:focus-visible {
+  outline: 2px solid #fcd9a8;
+  outline-offset: 3px;
+}
+.btn-romantic:active {
+  transform: translateY(0) scale(0.98);
+}
+.btn-romantic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.btn-romantic:hover::after {
+  transform: translateX(120%);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-weight: 500;
+  color: #ffd1e8;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(244, 114, 182, 0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+.btn-ghost:hover {
+  background: rgba(244, 114, 182, 0.16);
+  box-shadow: 0 0 24px rgba(244, 114, 182, 0.25);
+}
+.btn-ghost:focus-visible {
+  outline: 2px solid #fcd9a8;
+  outline-offset: 3px;
+}
+
+/* ── Icon button ────────────────────────────────────── */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  touch-action: manipulation;
+}
+.icon-btn:hover {
+  background: rgba(244, 114, 182, 0.25);
+  box-shadow: 0 0 20px rgba(244, 114, 182, 0.4);
+}
+.icon-btn:focus-visible {
+  outline: 2px solid #fcd9a8;
+  outline-offset: 2px;
+}
+.icon-btn:active {
+  transform: scale(0.94);
+}
+
+/* ── Range inputs ───────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f472b6 var(--fill, 0%), rgba(255, 255, 255, 0.2) var(--fill, 0%));
+  cursor: pointer;
+  outline-offset: 4px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #f472b6;
+  box-shadow: 0 0 10px rgba(244, 114, 182, 0.8);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #f472b6;
+  box-shadow: 0 0 10px rgba(244, 114, 182, 0.8);
+}
+
+/* ── Misc ───────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.heart-cursor {
+  cursor: pointer;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
